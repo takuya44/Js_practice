@@ -6,6 +6,7 @@
  * 5. 続・便利メソッドforEach
  * 6. なぜforEachを使うのか:動画での説明のみ
  * ⭐️コーディング演習1:forループからの脱却
+ * ⭐️コーディング演習2:複数の値の処理
  * ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
  */
 
@@ -85,3 +86,29 @@ function handlePosts2() {
   // アロー関数でもOK
   // posts.forEach((post) => savePost(post));
 }
+
+/*
+ * ⭐️コーディング演習2:複数の値の処理　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+ */
+
+/*
+ * 複数の値の処理
+ * 下の配列には画像の大きさを表すオブジェクトが複数格納してあります。
+ * forEachメソッドを使って画像の面積を求め、
+ * 「areas」という新しい配列に格納してください。
+ *
+ * 面積の計算方法は「image.height * image.width」となります。
+ */
+// forループ
+var images = [
+  { height: 10, width: 30 },
+  { height: 20, width: 90 },
+  { height: 54, width: 32 },
+];
+var areas = [];
+
+images.forEach(function (image) {
+  areas.push({ 面積: image.height * image.width });
+});
+// 結果: areas = [300, 1800, 1728]
+// 結果: areas = [ { 面積: 300 }, { 面積: 1800 }, { 面積: 1728 } ]
