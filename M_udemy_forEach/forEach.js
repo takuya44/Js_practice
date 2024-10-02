@@ -4,7 +4,8 @@
  * 目次：
  * 4. 便利メソッドforEach
  * 5. 続・便利メソッドforEach
- * 6. なぜforEachを使うのか
+ * 6. なぜforEachを使うのか:動画での説明のみ
+ * ⭐️コーディング演習1:forループからの脱却
  * ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
  */
 
@@ -41,3 +42,46 @@ numbers.forEach(adder); // NG: numbers.forEach(adder()); とすると、関数�
 
 // 合計値を表示
 sum; // 結果: 15
+
+/*
+ * ⭐️コーディング演習1:forループからの脱却　＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+ */
+
+/*
+ * forループからの脱却
+ * 下のコードは savePost という関数を3回呼び出しています。
+ * このコード自体は動くので機能としては問題はないのですが、
+ * forループよりもforEachメソッドを使ってコードを読みやすくしたいです。
+ * 下のコードをforEachを使うようにリファクタしてください。
+ *
+ * 注意： savePostという関数は定義済みだと考えてください（新たに定義する必要はありません）
+ */
+// forループ
+function handlePosts() {
+  var posts = [
+    { id: 23, title: "JSニュース" },
+    { id: 52, title: "リファクター・シティ" },
+    { id: 105, title: "Rubyの良いところ" },
+  ];
+
+  for (var i = 0; i < posts.length; i++) {
+    savePost(posts[i]);
+  }
+}
+
+// forEachメソッド
+function handlePosts2() {
+  var posts = [
+    { id: 23, title: "JSニュース" },
+    { id: 52, title: "リファクター・シティ" },
+    { id: 105, title: "Rubyの良いところ" },
+  ];
+
+  // NG:posts.forEach(savePost(post));
+  // OK
+  posts.forEach(function (post) {
+    savePost(post);
+  });
+  // アロー関数でもOK
+  // posts.forEach((post) => savePost(post));
+}
