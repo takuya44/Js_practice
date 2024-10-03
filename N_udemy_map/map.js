@@ -63,3 +63,25 @@ var heights = images.map(function (image) {
   return image.height;
 });
 // 結果: ["34px", "54px", "83px"]
+
+/*
+ * ⭐️演習4：mapで演算＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+ */
+
+/*
+ * mapを使って、距離と時間からそれぞれの旅行(trips)での速度を求めてください。
+ *
+ * 計算式は「距離(distance) / 時間(time)」となります。
+ * 結果の配列を「speeds」という変数に格納してください。
+ *
+ */
+var trips = [
+  { distance: 34, time: 10 },
+  { distance: 90, time: 50 },
+  { distance: 59, time: 25 },
+];
+
+var speeds = trips.map(function (trip) {
+  return trip.distance / trip.time;
+});
+// 結果: [3.4, 1.8, 2.36]
