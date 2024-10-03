@@ -5,6 +5,7 @@
  * 目次：
  * 7. 便利メソッドmap
  * 8. 続・便利メソッドmap
+ * ⭐️演習３：オブジェクトの配列から興味のある値だけを引き抜く
  * ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
  */
 
@@ -40,3 +41,25 @@ var prices = cars.map(function (car) {
   return car.price;
 });
 // 結果: ["安い", "高い"]
+
+/*
+ * ⭐️演習３：オブジェクトの配列から興味のある値だけを引き抜く＝＝＝＝＝＝＝＝＝＝
+ */
+
+/*
+ * mapを使って配列内のオブジェクトの「height」だけを取得し、
+ * 新しい配列を作成してください。
+ *
+ * その新しい配列は「heights」という変数に格納してください。
+ * 「return」キーワードを忘れないように！
+ */
+var images = [
+  { height: "34px", width: "39px" },
+  { height: "54px", width: "19px" },
+  { height: "83px", width: "75px" },
+];
+
+var heights = images.map(function (image) {
+  return image.height;
+});
+// 結果: ["34px", "54px", "83px"]
