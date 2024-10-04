@@ -8,6 +8,8 @@
  * ⭐️演習３：オブジェクトの配列から興味のある値だけを引き抜く
  * ⭐️演習4：mapで演算
  * ⭐️応用問題 ⭐️ - pluckの実装
+ * ⭐️応用問題２ ⭐️ - pluckの実装
+ * ⭐️応用問題３ ⭐️ - pluckの実装
  * ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
  */
 
@@ -142,3 +144,32 @@ function createImages(widths, heights) {
     return { width: element, height: heights[index] };
   });
 }
+
+/*
+ * ⭐️応用問題３ ⭐️ - pluckの実装＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+ */
+
+/*
+ * pluck === pick関数とは、あるオブジェクトの配列から特定のプロパティ値を抜き取ってくる関数
+ */
+function pluckmemberProperty1(array, property) {
+  // 指定されたプロパティの値を返す
+  return array.map(function (element) {
+    return element[property];
+  });
+}
+
+var members = [
+  { name: "田中", age: "28", address: "東京都" },
+  { name: "佐藤", age: "22", address: "埼玉県" },
+  { name: "山田", age: "35", address: "千葉県" },
+];
+
+var membersName = pluckmemberProperty1(members, "name");
+// 結果: ["田中", "佐藤", "山田"]
+
+var membersName = pluckmemberProperty1(members, "age");
+// 結果: ["28", "22", "35"]
+
+var membersName = pluckmemberProperty1(members, "address");
+// 結果: ["東京都", "埼玉県", "千葉県"]
