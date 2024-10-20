@@ -127,3 +127,62 @@ var deskTypes = desks.reduce(
   { sitting: 0, standing: 0 }
 );
 // 結果: { sitting: 3, standing: 2 }
+
+/*
+ * ⭐️⭐️⭐️演習16.unique関数を作ってみよう＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+ *
+ * 配列の中の重複した要素を除外する「unique」という関数を作ってください。
+ *
+ * 例えば、以下のように動作します：
+ * var numbers = [1, 1, 2, 3, 4, 4];
+ * 上の配列があった場合、結果は
+ * [1, 2, 3, 4]
+ *
+ * ヒント：「reduce」と「find」を使います。
+ */
+var numbers16 = [1, 1, 2, 3, 4, 4];
+
+function unique(array) {
+  return array.reduce(function (acc, number) {
+    if (!acc.includes(number)) {
+      acc.push(number);
+    }
+    return acc;
+  }, []);
+}
+unique(numbers16);
+// 結果: [1, 2, 3, 4]
+
+function unique2(array) {
+  return array.reduce(function (acc, number) {
+    if (acc.indexOf(number) === -1) {
+      acc.push(number);
+    }
+    return acc;
+  });
+}
+unique2(numbers16);
+// 結果: [1, 2, 3, 4]
+
+function unique3(array) {
+  return array.reduce(function (acc, element) {
+    var existingElement = acc.find(function (target) {
+      return target === element;
+    });
+
+    if (!existingElement) {
+      acc.push(element);
+    }
+
+    return acc;
+  }, []);
+}
+unique3(numbers16);
+// 結果: [1, 2, 3, 4]
+
+// 余談：Setオブジェクトを使う方法
+function unique4(array) {
+  return [...new Set(array)];
+}
+console.log(unique4(numbers16));
+// 結果: [1, 2, 3, 4]
